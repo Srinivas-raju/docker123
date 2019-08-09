@@ -21,3 +21,6 @@
     he-tomcat-8.5.43/webapps/gameoflife.war
  18 WORKDIR /opt/tomcat/apache-tomcat-8.5.43/bin
  19 RUN chmod 777 *
+ # CMD ./startup.sh
+ 21 CMD ["/opt/tomcat/apache-tomcat-8.5.43/bin/catalina.sh", "run"]
+ 22 EXPOSE 8080
