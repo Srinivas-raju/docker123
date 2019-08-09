@@ -1,0 +1,23 @@
+  1 FROM centos
+  
+  3 RUN yum update -y
+   
+  5 RUN yum install java-1.8.0 wget unzip -y
+   
+  7 RUN mkdir -p /opt/tomcat
+   
+  9 WORKDIR /opt/tomcat
+ 
+  RUN wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.43/bin/aa
+    pache-tomcat-8.5.43.zip
+  
+ 13 RUN unzip apache-tomcat-8.5.43.zip
+  
+ 15 RUN wget --user=admin --password=admin123 http://13.233.29.34:8081/nexus/conn
+    tent/repositories/snapshots/com/wakaleo/gameoflife/gameoflife-web/1.0-SNAPSHH
+    OT/gameoflife-web-1.0-20190808.164410-1.war
+  
+ 17 RUN cp /opt/tomcat/gameoflife-web-1.0-20190808.164410-1.war /opt/tomcat/apacc
+    he-tomcat-8.5.43/webapps/gameoflife.war
+ 18 WORKDIR /opt/tomcat/apache-tomcat-8.5.43/bin
+ 19 RUN chmod 777 *
